@@ -4,6 +4,7 @@
 class Node:
     """Represents a node a singly_linked list"""
 
+
     def __init__(self, data, next_node=None):
         """Initializes the Node.
 
@@ -32,12 +33,13 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        if not isinstance(value, Node) and value != None:
+        if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
         self.__next_node = value
 
 class SinglyLinkedList:
     """ Reprents a singly-linked list"""
+
 
     def __init__(self):
         """initializes a singly-linked list"""
@@ -58,7 +60,7 @@ class SinglyLinkedList:
             self.__head = new
         else:
             curr = self.__head
-            while curr.next_node != None and curr.next_node.data < value:
+            while curr.next_node is not None and curr.next_node.data < value:
                 curr = curr.next_node
             new.next_node = curr.next_node
             curr.next_node = new
@@ -67,7 +69,7 @@ class SinglyLinkedList:
         """Defines the representation of a singly-linked list for print()"""
         nodes = []
         curr = self.__head
-        while curr != None:
+        while curr is not None:
             nodes.append(str(curr.data))
             curr = curr.next_node
         return "\n".join(nodes)

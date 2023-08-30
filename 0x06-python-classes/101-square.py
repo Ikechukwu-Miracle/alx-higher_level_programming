@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a class called Square"""
 
+
 class Square:
     """Represents a square"""
 
@@ -34,9 +35,11 @@ class Square:
 
     @position.setter
     def position(self, val):
-        if not isinstance(val, tuple) or len(val) != 2 or not all(n >= 0
-                for n in val) or not all(isinstance(n, int) for n in val):
+        if not isinstance(val, tuple) or len(val) != 2:
             raise TypeError("position must be a tuple of two positive integers")
+         x, y = value
+         if not isinstance(x, int) or not isinstance(y, int) or x < 0 or y < 0:
+             raise TypeError("position must be a tuple of two positive integers")
         self.__position = val
 
     def area(self):
