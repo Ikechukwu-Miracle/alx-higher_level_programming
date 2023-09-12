@@ -7,7 +7,7 @@ instance of a direct or indirect inheritor of a class.
 def inherits_from(obj, a_class):
     """Returns True only if obj is an instance of a subclass of
     a_class.
-    
+
     Args:
         obj (any): object to check
         a_class (type): class to match
