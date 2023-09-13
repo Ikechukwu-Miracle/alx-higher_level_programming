@@ -29,3 +29,13 @@ class Student:
                     return {x: getattr(self, x) for x in attrs
                             if hasattr(self, x)}
         return self.__dict__
+
+    def reload_from_json(self, json):
+        """Replaces attributes of student.
+
+        Args:
+            json (dict): key/value pairs to replace attributes
+        """
+
+        for x, y in json.items():
+            setattr(self, x, y)
