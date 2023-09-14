@@ -38,6 +38,6 @@ try:
         print(f"{key}: {stat_c[key]}")
 
 except KeyboardInterrupt:
-        print(f"File size: {size}")
-        for key in sorted(stat_c):
+    print(f"File size: {size}")
+    for key in sorted(stat_c):
             print(f"{key}: {stat_c[key]}")

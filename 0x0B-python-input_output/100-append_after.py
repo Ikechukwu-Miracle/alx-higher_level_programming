@@ -19,4 +19,4 @@ def append_after(filename="", search_string="", new_string=""):
                 string += new_string
 
     with open(filename, mode="w") as written:
-            written.write(string)
+        written.write(string)
