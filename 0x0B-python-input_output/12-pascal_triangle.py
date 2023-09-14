@@ -16,7 +16,7 @@ def pascal_triangle(n):
 
     triangle = []
     for rowNum in range(n):
-        row =[]
+        row = []
         coef = 1
 
         for k in range(rowNum + 1):
