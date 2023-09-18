@@ -2,7 +2,6 @@
 """The base model class for the project"""
 import json
 import csv
-import tutle
 
 
 class Base:
