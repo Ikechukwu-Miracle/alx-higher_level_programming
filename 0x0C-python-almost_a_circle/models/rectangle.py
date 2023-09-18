@@ -97,10 +97,11 @@ class Rectangle(Base):
     def __str__(self):
         """print() and str() representation of rectangle"""
 
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x,
-                self.y, self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x, self.y,
+                                                       self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updates the rectangle.
 
         Args:
@@ -122,4 +123,18 @@ class Rectangle(Base):
                 self.x = args[3]
             if n_args >= 5:
                 self.x = args[4]
-
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
