@@ -34,3 +34,62 @@ class Base:
         if list_dictionaries is None or list_dictionaries == []:
             return []
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """Writes the JSON representation of a list of objects to a file.
+
+        Args:
+            list_objs (list): list of inherited instances of Base
+        """
+        file_name = cls.__name__ + ".json"
+        with open(file_name, "w") as jFile:
+            if list_objs is None:
+                jFile.write("[]")
+            else:
+                dicts = []
+                for obj in list_objs:
+                    dicts.append(obj.to_dictionary())
+                jFile.write(Base.to_json_string(dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns a list of JSON string represetation.
+
+        Args:
+            json_string (str): the JSON string
+        """
+
+        json_list = []
+        if json_string is None or json_string == "{}":
+            return json_list
+        return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Creates a class initialized from a dictionary of attributes.
+
+        Args:
+            dictionary (dict): key/value pair being analyzed
+        """
+        if dictionary and dictionary != {}:
+            if cls.__name__ == "Rectangle":
+                newInst = cls(1, 1)
+            else:
+                newInst = cls(1)
+            newInst.update(**dictionary)
+            return newInst
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of classes instantiated from a JSON string file"""
+
+        filename = f"{cls.__name__}.json"
+
+        try:
+            with open(filename) as jFile:
+                jFile_data = jFile.read()
+                dicts = Base.from_json_string(jFile_data)
+                return [cls.create(**dic) for dic in dicts]
+        except FileNotFoundError:
+            return []
