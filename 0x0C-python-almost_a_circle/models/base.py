@@ -136,6 +136,7 @@ class Base:
         except FileNotFoundError:
             return []
 
+        @staticmethod
         def draw(list_rectangles, list_squares):
             """Draws Rectangles and squares using turtle.
 
@@ -163,13 +164,13 @@ class Base:
                 t.hideturtle()
 
             for sq in list_squares:
-		t.showturtle()
+                t.showturtle()
                 t.up()
                 t.goto(sq.x, sq.y)
                 t.down()
                 t.begin_fill()
                 t.fillcolor("#ffff00")
-		for _ in range(4):
+                for _ in range(4):
                     t.forward(sq.width)
                     t.left(90)
                 t.hideturtle()
