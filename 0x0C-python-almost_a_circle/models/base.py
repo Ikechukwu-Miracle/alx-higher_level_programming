@@ -2,6 +2,7 @@
 """The base model class for the project"""
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -134,3 +135,41 @@ class Base:
                 return [cls.create(**dic) for dic in dicts]
         except FileNotFoundError:
             return []
+
+        def draw(list_rectangles, list_squares):
+            """Draws Rectangles and squares using turtle.
+
+            Args:
+                list_rectangles (list): list of Rectangle objects
+                list_squares (list): list of square objects
+            """
+            t = turtle.Turtle()
+            t.screen.bgcolor("#000000")
+            t.pensize(3)
+
+            t.color("#ffffff")
+            for rec in list_rectangles:
+                t.showturtle()
+                t.up()
+                t.goto(rec.x, rec.y)
+                t.down()
+                t.begin_fill()
+                t.fillcolor("#ffff00")
+                for _ in range(2):
+                    t.forward(rec.width)
+                    t.left(90)
+                    t.forward(rec.height)
+                    t.left(90)
+                t.hideturtle()
+
+            for sq in list_squares:
+		t.showturtle()
+                t.up()
+                t.goto(sq.x, sq.y)
+                t.down()
+                t.begin_fill()
+                t.fillcolor("#ffff00")
+		for _ in range(4):
+                    t.forward(sq.width)
+                    t.left(90)
+                t.hideturtle()
