@@ -29,7 +29,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, val):
-        if not isinstance(val, int):
+        if type(val) != int:
             raise TypeError("width must be an integer")
         if val <= 0:
             raise ValueError("width must be > 0")
@@ -42,7 +42,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, val):
-        if not isinstance(val, int):
+        if type(val) != int:
             raise TypeError("height must be an integer")
         if val <= 0:
             raise ValueError("height must be > 0")
@@ -55,7 +55,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, val):
-        if not isinstance(val, int):
+        if type(val) != int:
             raise TypeError("x must be an integer")
         if val < 0:
             raise ValueError("x must be >= 0")
@@ -68,7 +68,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, val):
-        if not isinstance(val, int):
+        if type(val) != int:
             raise TypeError("y must be an integer")
         if val < 0:
             raise ValueError("y must be >= 0")
@@ -121,8 +121,8 @@ class Rectangle(Base):
                 self.height = args[2]
             if n_args >= 4:
                 self.x = args[3]
-            if n_args >= 5:
-                self.x = args[4]
+            if n_args > 4:
+                self.y = args[4]
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":

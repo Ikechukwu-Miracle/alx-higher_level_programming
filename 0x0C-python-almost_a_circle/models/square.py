@@ -2,6 +2,7 @@
 """Defines a square class based on rectangle"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """A Square (special case of recatngle)"""
 
@@ -23,7 +24,7 @@ class Square(Rectangle):
     @size.setter
     def size(self, value):
         self.width = value
-        self.width = value
+        self.height = value
 
     def __str__(self):
         """Returns the print() and str() representation of a square"""
@@ -61,10 +62,5 @@ class Square(Rectangle):
                     self.y = val
 
     def to_dictionary(self):
-       """Returns a dictionary description of square"""
-       return {
-               "id": self.id,
-               "size": self.size,
-               "x": self.x,
-               "y": self.y
-            }
+        """Returns a dictionary description of square"""
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}

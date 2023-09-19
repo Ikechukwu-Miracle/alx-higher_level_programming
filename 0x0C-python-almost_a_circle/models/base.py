@@ -34,7 +34,7 @@ class Base:
             list_dictionaries (list): the list of dictionaries
         """
         if list_dictionaries is None or list_dictionaries == []:
-            return []
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -46,7 +46,7 @@ class Base:
         """
         file_name = cls.__name__ + ".json"
         with open(file_name, "w") as jFile:
-            if list_objs is None:
+            if list_objs is None or list_objs == []:
                 jFile.write("[]")
             else:
                 dicts = []
