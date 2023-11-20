@@ -16,4 +16,4 @@ if __name__ == "__main__":
         print(row)
 
     cur.close()
-    connectiom.close()
+    connection.close()
