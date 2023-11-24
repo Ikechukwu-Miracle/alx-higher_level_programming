@@ -5,11 +5,10 @@ import sys
 
 
 if __name__ == "__main__":
-	username, passwd = sys.argv[1], sys.argv[2]
-	db_name, searchName = sys.argv[3], sys.argv[4]
+	searchName = sys.argv[4]
 
-    connection = MySQLdb.connect(host="localhost", port=3306,
-            		user=username, passwd=passwd, db=db_name)
+    connection = MySQLdb.connect(host="localhost", user=sys.argv[1],
+                         passwd=sys.argv[2], db=sys.argv[3], port=3306)
 	cur = connection.cursor()
 	query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
 	cur.execute(query, (searchName,))
