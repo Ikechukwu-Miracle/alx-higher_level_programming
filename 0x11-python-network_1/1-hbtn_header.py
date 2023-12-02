@@ -9,4 +9,4 @@ import sys
 req = Request(sys.argv[1])
 
 with urlopen(req) as response:
-    print(dict(response.headers).get('X-Request-Id')
+    print(dict(response.headers).get('X-Request-Id'))
