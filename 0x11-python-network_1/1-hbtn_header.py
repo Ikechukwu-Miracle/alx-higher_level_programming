@@ -6,9 +6,6 @@ from urllib.request import Request, urlopen
 import sys
 
 
-if len(sys.argv) != 2:
-    sys.exit(1)
-
 req = Request(sys.argv[1])
 
 with urlopen(req) as response:
