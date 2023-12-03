@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     url = 'http://0.0.0.0:5000/search_user'
     data = {'q': param}
-    
+
     try:
         response = requests.post(url, data=data)
         json_res = response.json()
